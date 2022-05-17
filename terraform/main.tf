@@ -16,9 +16,11 @@ provider "aws" {
     region = "me-south-1"
 }
 
+# Ceate a resource for IAM Roles and attach it to the trust policy
+
 resource "aws_iam_role" "roles" {
 
-    name = var.users
+    name = var.roles
 
     assume_role_policy = jsonencode ({
 
@@ -38,6 +40,8 @@ resource "aws_iam_role" "roles" {
   
 }
 
+# Ceate a resource for IAM Group Policy and attach it to the Role
+
 resource "aws_iam_group_policy" "group_policy" {
 
 
@@ -52,12 +56,14 @@ resource "aws_iam_group_policy" "group_policy" {
             Sid = ""
             Action = ["sts:AssumeRole"]
             Effect = "Allow"
-            "Resource": ["arn:aws:iam::947860202749:group/prod-ci-group"]
+            "Resource": ["arn:aws:iam::947860202749:role/prod-ci-role"]
         },
         ]
     })
   
 }
+
+# Ceate a resource for IAM Group Membership
 
 resource "aws_iam_user_group_membership" "group_membership" {
 
@@ -68,11 +74,15 @@ resource "aws_iam_user_group_membership" "group_membership" {
     ]
 }
 
+# Ceate a resource for IAM Users and attach it to the group
+
 resource "aws_iam_user" "users" {
     name = var.users
     path = "/"
   
 }
+
+# Ceate a resource for IAM Groups
 
 resource "aws_iam_group" "groups" {
     name = var.groups

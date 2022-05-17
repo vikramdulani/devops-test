@@ -1,3 +1,4 @@
+# Create a service for Energi node
 apiVersion: v1
 kind: Service
 metadata:
@@ -12,6 +13,7 @@ spec:
   selector:
     app: energi
 ---
+# create a statefulset for energi container image with persitent volume
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:

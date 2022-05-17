@@ -5,7 +5,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
   
 RUN cd /tmp && \
-    # Download the  archive and signature files
+    # Download the archive and signature files
     wget -q https://s3-us-west-2.amazonaws.com/download.energi.software/releases/energi3/v3.1.3/energi3-v3.1.3-linux-amd64.tgz && \
     wget -q https://s3-us-west-2.amazonaws.com/download.energi.software/releases/energi3/v3.1.3/SHA256SUMS && \
     wget -q https://s3-us-west-2.amazonaws.com/download.energi.software/releases/energi3/v3.1.3/SHA256SUMS.asc && \
@@ -13,7 +13,7 @@ RUN cd /tmp && \
 
     echo "Verifying authenticity of the downloaded files" && \
 
-    # Get the public key 
+    # Get the Energi public key 
     gpg --import DB1DA83F.asc && \
     
     # Verify the signature file is uncorrupted
@@ -22,6 +22,7 @@ RUN cd /tmp && \
     # verify the SHASUM matches the archive
     sha256sum --check --status --ignore-missing "SHA256SUMS" && \
 
+    # Extract and install the Energi binary 
     echo "Installing Energy Core" && \
 
     tar xvfz energi3-v3.1.3-linux-amd64.tgz && \
