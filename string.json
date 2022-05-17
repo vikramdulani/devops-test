@@ -1,0 +1,27 @@
+{
+  "1": {
+    "first_name": "Adam",
+    "last_name": "Smith",
+    "domain": "gmail"
+  },
+  "2": {
+    "first_name": "Warren",
+    "last_name": "Buffet",
+    "domain": "berkshire"
+  },
+  "3": {
+    "first_name": "Steve",
+    "last_name": "jobs",
+    "domain": "apple"
+  },
+  "4": {
+    "first_name": "Vikram",
+    "last_name": "Dulani",
+    "domain": "allure"
+  },
+  "5": {
+    "first_name": "Ratan",
+    "last_name": "Tata",
+    "domain": "tata"
+  }
+}
