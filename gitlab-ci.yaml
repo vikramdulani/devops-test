@@ -1,0 +1,30 @@
+# Define stages for the CI CD Pipeline
+stages:
+  - build
+  - deploy
+
+# Build the docker image for Energi Core. 
+## TODO: Add container registry login 
+
+docker-build-master:
+  stage: build
+  image:
+    name: docker:stable
+  services:
+  - docker:stable-dind
+  script:
+    - docker build -t "$REPCO_NAME" .
+    - docker tag $REPO_NAME $CI_REGISTRY_URL:$TAG 
+    - docker push $CI_REGISTRY_URL:$TAG
+  only:
+    - master
+
+# Deploy the Energi Kubernetes statefulset
+deploy-prod
+  stage: deploy
+  image:
+    name: roffe/kubectl
+  script:
+    - kubectl apply -f energi-node.yml
+  only:
+    - master
