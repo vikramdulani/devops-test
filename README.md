@@ -25,7 +25,7 @@ Get the list of running services
 
 Run the shell script
 
-bash string.sh
+    bash string.sh
 
 ### 5. A NodeJS app that reads the 'string.json' file and manipulates the text to print email addresses in the "first_name.last_name@domain.com" format
 
@@ -39,10 +39,15 @@ Run the node app
 
 #### Configure keys for your AWS account
 
-$ export AWS_ACCESS_KEY_ID=""
-$ export AWS_SECRET_ACCESS_KEY=""
+    export AWS_ACCESS_KEY_ID=""
+    export AWS_SECRET_ACCESS_KEY=""
 
 #### Run Terraform module
 
-$ terraform init
-$ terraform apply
+Initialize terraform
+
+    terraform init
+
+Apply terraform
+
+    terraform apply
