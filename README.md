@@ -23,6 +23,8 @@ Get the list of running services
 
 This is a very simple (partial) build and deploy script for 1 & 2
 
+    gitlab-ci.yml
+
 ### 4. A Bash script that reads the 'string.json' file and manipulates the text to print email addresses in the "first_name.last_name@domain.com" format
 
 Run the shell script
