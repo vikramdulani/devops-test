@@ -21,6 +21,8 @@ Get the list of running services
 
 ### 3. CI/CD pipeline for the above
 
+This is a very simple (partial) build and deploy script for 1 & 2
+
 ### 4. A Bash script that reads the 'string.json' file and manipulates the text to print email addresses in the "first_name.last_name@domain.com" format
 
 Run the shell script
